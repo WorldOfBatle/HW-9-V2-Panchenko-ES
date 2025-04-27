@@ -138,6 +138,20 @@ void task2() {
         double avg;
     };
     std::vector<Student> group(m);
+
+    // 4) считываем каждого студента и считаем средний балл
+    for (size_t i = 0; i < m; ++i) {
+        auto& s = group[i];
+        input
+        >> s.last >> s.first >> s.patronymic
+        >> s.day >> s.month >> s.year;
+        long sum = 0;
+        for (int j = 0; j < 5; ++j) {
+            input >> s.grades[j];
+            sum += s.grades[j];
+        }
+        s.avg = static_cast<double>(sum) / 5.0;
+    }
 }
 
 int main() {
