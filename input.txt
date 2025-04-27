@@ -1,0 +1,4 @@
+3
+Ivanov Ivan Ivanovich 12 5 2001 5 4 3 4 5
+Petrova Anna Sergeevna 3 10 2002 4 4 4 5 3
+Sidorov Petr Fedorovich 23 8 2001 3 5 4 3 4

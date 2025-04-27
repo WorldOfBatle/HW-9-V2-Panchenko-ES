@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>    // для std::vector
 #include <cstddef>   // для size_t, ptrdiff_t
+#include <fstream>    // + для std::ifstream, std::ofstream
+#include <string>     // + для std::string
+#include <iomanip>    // + для std::setprecision
 
 // Вспомогательные шаблонные функции для сравнения
 template <typename T>
@@ -103,9 +106,21 @@ void task1() {
     std::cout << "\n";
 }
 
-// Task 2: здесь будет решение второй задачи
+// Task 2: Переписать данные файла input.txt в файл output.txt, отсортировав их
 void task2() {
     std::cout << "\n--- Task 2 ---\n";
+    // 1) подключаем файловые потоки и открываем файлы
+    std::ifstream input("input.txt");
+    if (!input.is_open()) {
+        std::cerr << "Не удалось открыть input.txt\n";
+        return;
+    }
+
+    std::ofstream output("output.txt");
+    if (!output.is_open()) {
+        std::cerr << "Не удалось открыть output.txt\n";
+        return;
+    }
 }
 
 int main() {
