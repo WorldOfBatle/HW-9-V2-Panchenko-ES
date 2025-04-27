@@ -67,6 +67,22 @@ void insertionSort(std::vector<T>& v, Compare cmp) {
 // Task 1: Написать шаблонную функцию сортировки вектора
 void task1() {
     std::cout << "\n--- Task 1 ---\n";
+    int variant = 2; // мой вариант
+
+    // Пример данных для демонстрации
+    std::vector<int> data = { 5, 2, 9, 1, 5, 6 };
+
+    // Выбираем метод сортировки по правилу variant % 3
+    switch (variant % 3) {
+        case 0: bubbleSort(data, isLess<int>); break;
+        case 1: selectionSort(data, isLess<int>); break;
+        case 2: insertionSort(data, isLess<int>); break;
+    }
+
+    // Выводим результат
+    std::cout << "Отсортированный вектор: ";
+    for (int x : data) std::cout << x << " ";
+    std::cout << "\n";
 }
 
 // Task 2: здесь будет решение второй задачи
