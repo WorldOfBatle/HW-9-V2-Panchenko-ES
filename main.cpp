@@ -18,6 +18,52 @@ bool compare(const T& a, const T& b, Compare cmp) {
     return cmp(a, b);
 }
 
+// 1. Пузырьковая сортировка
+template <typename T, typename Compare>
+void bubbleSort(std::vector<T>& v, Compare cmp) {
+    size_t n = v.size();
+    for (size_t i = 0; i + 1 < n; ++i) {
+        bool swapped = false;
+        for (size_t j = 0; j + 1 < n - i; ++j) {
+            if (compare(v[j+1], v[j], cmp)) {
+                std::swap(v[j], v[j+1]);
+                swapped = true;
+            }
+        }
+        if (!swapped) break;
+    }
+}
+
+// 2. Сортировка выбором
+template <typename T, typename Compare>
+void selectionSort(std::vector<T>& v, Compare cmp) {
+    size_t n = v.size();
+    for (size_t i = 0; i < n; ++i) {
+        size_t idx = i;
+        for (size_t j = i+1; j < n; ++j) {
+            if (compare(v[j], v[idx], cmp)) {
+                idx = j;
+            }
+        }
+        if (idx != i) std::swap(v[i], v[idx]);
+    }
+}
+
+// 3. Сортировка вставками
+template <typename T, typename Compare>
+void insertionSort(std::vector<T>& v, Compare cmp) {
+    size_t n = v.size();
+    for (size_t i = 1; i < n; ++i) {
+        T key = v[i];
+        size_t j = i;
+        while (j > 0 && compare(key, v[j-1], cmp)) {
+            v[j] = v[j-1];
+            --j;
+        }
+        v[j] = key;
+    }
+}
+
 // Task 1: Написать шаблонную функцию сортировки вектора
 void task1() {
     std::cout << "\n--- Task 1 ---\n";
