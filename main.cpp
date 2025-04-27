@@ -152,6 +152,24 @@ void task2() {
         }
         s.avg = static_cast<double>(sum) / 5.0;
     }
+
+    // 5) сортируем по возрастанию среднего
+    insertionSort(group, [](const Student& a, const Student& b) {
+        return a.avg < b.avg;
+    });
+
+    // 6) выводим в output.txt: все поля + средний
+    for (auto& s : group) {
+        output
+        << s.last << ' ' << s.first << ' ' << s.patronymic << ' '
+        << s.day << ' ' << s.month << ' ' << s.year << ' ';
+        for (int j = 0; j < 5; ++j)
+        output << s.grades[j] << ' ';
+        output << std::fixed << std::setprecision(2) << s.avg
+        << "\n";
+    }
+
+    std::cout << "Результат записан в output.txt\n";
 }
 
 int main() {
