@@ -1,0 +1,8 @@
+# .gitignore
+*.o
+*.exe
+*.out
+*.obj
+*.log
+*.swp
+.vscode/
