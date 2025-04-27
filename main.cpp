@@ -121,6 +121,23 @@ void task2() {
         std::cerr << "Не удалось открыть output.txt\n";
         return;
     }
+
+    // 2) читаем число студентов
+    size_t m;
+    input >> m;
+    if (!input || m == 0) {
+        std::cerr << "Некорректное число студентов\n";
+        return;
+    }
+
+    // 3) описываем структуру и создаём контейнер
+    struct Student {
+        std::string last, first, patronymic;
+        int day, month, year;
+        int grades[5];
+        double avg;
+    };
+    std::vector<Student> group(m);
 }
 
 int main() {
