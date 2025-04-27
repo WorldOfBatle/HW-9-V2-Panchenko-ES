@@ -67,21 +67,39 @@ void insertionSort(std::vector<T>& v, Compare cmp) {
 // Task 1: Написать шаблонную функцию сортировки вектора
 void task1() {
     std::cout << "\n--- Task 1 ---\n";
-    int variant = 2; // мой вариант
+    int variant = 2; // номер варианта. Метод выбираем как variant % 3
 
-    // Пример данных для демонстрации
-    std::vector<int> data = { 5, 2, 9, 1, 5, 6 };
+    // 1) читаем размер вектора
+    std::cout << "Введите количество элементов: ";
+    size_t n;
+    std::cin >> n;
 
-    // Выбираем метод сортировки по правилу variant % 3
+    // 2) читаем сами элементы
+    std::vector<int> data(n);
+    std::cout << "Введите " << n << " целых чисел через пробел:\n";
+    for (size_t i = 0; i < n; ++i) {
+        std::cin >> data[i];
+    }
+
+    // 3) выводим исходный вектор
+    std::cout << "Исходный вектор: ";
+    for (size_t i = 0; i < n; ++i) {
+        std::cout << data[i] << " ";
+    }
+    std::cout << "\n";
+
+    //4) Выбираем метод сортировки
     switch (variant % 3) {
         case 0: bubbleSort(data, isLess<int>); break;
         case 1: selectionSort(data, isLess<int>); break;
         case 2: insertionSort(data, isLess<int>); break;
     }
 
-    // Выводим результат
+    // 5) выводим результат
     std::cout << "Отсортированный вектор: ";
-    for (int x : data) std::cout << x << " ";
+    for (size_t i = 0; i < n; ++i) {
+        std::cout << data[i] << " ";
+    }
     std::cout << "\n";
 }
 
